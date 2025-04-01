@@ -90,7 +90,7 @@ type guid struct {
 const (
 	maxStringSize        = 256
 	maxPhysAddressLength = 32
-	pad0for64_4for32     = 0
+	pad0for64_4for32     = uint(unsafe.Sizeof(uintptr(0)) - 4) // 64位为0，32位为4
 )
 
 type mibIfRow2 struct {
